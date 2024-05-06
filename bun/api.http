@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:3333
-@attendeeId = o3uVd_72zi9b
-@eventId = 52c15fd9-d544-4547-b67e-d10eec3f6677
+@attendeeId = nJhS9s9d7I4A
+@eventId = d7e7a563-c3ea-4510-b91f-19d88a938a51
 
 ###
 
@@ -9,7 +9,7 @@ POST {{baseUrl}}/api/events
 Content-Type: application/json
 
 {
-  "title": "Unite summit 2",
+  "title": "Unite summit",
   "details": "Um evento para apaixonados por tecnologia e programação.",
   "maximumAttendees": 2
 }
@@ -33,7 +33,6 @@ GET {{baseUrl}}/api/events/{{eventId}}
 ###
 
 # @name getEventAttendees
-
 GET {{baseUrl}}/api/events/{{eventId}}/attendees?query=Lucas
 
 ###
