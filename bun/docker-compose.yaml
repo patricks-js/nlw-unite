@@ -1,0 +1,9 @@
+services:
+  database:
+    image: bitnami/postgresql:latest
+    container_name: pass_in_bun
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - '5432:5432'

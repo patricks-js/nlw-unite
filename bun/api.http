@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:3333
+@attendeeId = o3uVd_72zi9b
+@eventId = 52c15fd9-d544-4547-b67e-d10eec3f6677
+
+###
+
+# @name createEvent
+POST {{baseUrl}}/api/events
+Content-Type: application/json
+
+{
+  "title": "Unite summit 2",
+  "details": "Um evento para apaixonados por tecnologia e programação.",
+  "maximumAttendees": 2
+}
+
+###
+
+# @name registerForEvent
+POST {{baseUrl}}/api/events/{{eventId}}/attendees
+Content-Type: application/json
+
+{
+  "name": "Lucas Patrick",
+  "email": "lucas.patrick3@gmail.com"
+}
+
+###
+
+# @name getEventById
+GET {{baseUrl}}/api/events/{{eventId}}
+
+###
+
+# @name getEventAttendees
+
+GET {{baseUrl}}/api/events/{{eventId}}/attendees?query=Lucas
+
+###
+
+# @name getAttendeeBadge
+GET {{baseUrl}}/api/attendees/{{attendeeId}}/badge
+
+###
+
+# @name makeCheckIn
+GET {{baseUrl}}/api/attendees/{{attendeeId}}/check-in
