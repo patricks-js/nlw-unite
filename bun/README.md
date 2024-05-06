@@ -69,9 +69,10 @@ Você precisa de duas dependências globais instaladas:
 - Docker/Docker Engine e Docker Compose
 
 1. Clone o repositório:
-    ```bash
-    git clone https://github.com/patricks-js/nwl-unite.git
-    ```
+
+   ```bash
+   git clone https://github.com/patricks-js/nwl-unite.git
+   ```
 
 2. Entre no diretório `nwl-unit/server/bun`
 
