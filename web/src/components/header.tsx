@@ -1,16 +1,13 @@
 import { Icons } from "./icons";
+import { NavLink } from "./ui/navlink";
 
 export function Header() {
   return (
     <header>
       <nav class="container py-5 flex items-center gap-5">
         <Icons.logo />
-        <a href="#index" class="font-medium text-sm text-muted-foreground">
-          Events
-        </a>
-        <a href="#index" class="font-medium text-sm text-zinc-50">
-          Participants
-        </a>
+        <NavLink active={true}>Events</NavLink>
+        <NavLink>Participants</NavLink>
       </nav>
     </header>
   );
