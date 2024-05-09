@@ -1,10 +1,10 @@
-import { Icon } from "./icons";
+import { Icons } from "./icons";
 
 export function Header() {
   return (
     <header>
       <nav class="container py-5 flex items-center gap-5">
-        <Icon.logo />
+        <Icons.logo />
         <a href="#index" class="font-medium text-sm text-muted-foreground">
           Events
         </a>
