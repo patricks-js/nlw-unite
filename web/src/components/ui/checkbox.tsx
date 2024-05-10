@@ -1,10 +1,10 @@
 import { Icons } from "../icons";
 
-export interface Props {
+export type Props = {
   disabled?: boolean;
   defaultChecked?: boolean;
   id: string;
-}
+};
 
 export function Checkbox(props: Props) {
   return (

@@ -1,4 +1,4 @@
-import { prisma } from "@/config/prisma";
+import { EventRepository } from "@/infra/database/repositories/event-repository";
 import { generateSlug } from "@/utils/generate-slug";
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
@@ -16,12 +16,7 @@ export async function createEventRoute(app: FastifyInstance) {
           title: z.string().min(4),
           details: z.string().nullable(),
           maximumAttendees: z.number().int().positive().nullable()
-        }),
-        response: {
-          201: z.object({
-            eventId: z.string().uuid()
-          })
-        }
+        })
       }
     },
     async function handler(request, reply) {
@@ -29,23 +24,19 @@ export async function createEventRoute(app: FastifyInstance) {
 
       const slug = generateSlug(title);
 
-      const eventWithSameSlug = await prisma.event.findUnique({
-        where: {
-          slug
-        }
-      });
+      const repo = new EventRepository();
+
+      const eventWithSameSlug = await repo.findBySlug(slug);
 
       if (eventWithSameSlug) {
-        throw new BadRequest("Invalid title");
+        throw new BadRequest("Invalid title.");
       }
 
-      const { id } = await prisma.event.create({
-        data: {
-          title,
-          details,
-          maximumAttendees,
-          slug
-        }
+      const id = await repo.create({
+        title,
+        details,
+        maximumAttendees,
+        slug
       });
 
       return reply.status(201).send({

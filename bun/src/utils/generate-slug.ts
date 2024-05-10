@@ -7,5 +7,6 @@ export function generateSlug(text: string): string {
       .toLowerCase()
       .replace(/[^\w\s-]/g, "")
       .replace(/\s+/g, "-")
+      .trim()
   );
 }

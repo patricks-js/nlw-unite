@@ -1,4 +1,6 @@
 import { For } from "solid-js";
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "./ui/table";
 
@@ -48,9 +50,9 @@ function AttendeeTableBody() {
             <TableCell>7 days ago</TableCell>
             <TableCell>7 days ago</TableCell>
             <TableCell>
-              {/* <Button size={"icon"} variant={"outline"} class="border-zinc-800 hover:border-border">
-                <Icon.dots size={16} />
-              </Button> */}
+              <Button variant={"outline"} size={"icon"}>
+                <Icons.dots size={16} class="text-foreground" />
+              </Button>
             </TableCell>
           </TableRow>
         )}
@@ -70,18 +72,18 @@ function AttendeeTableFooter() {
           <div class="inline-flex items-center gap-8">
             <span>Page 1 of 10</span>
             <div class="flex gap-1.5">
-              {/* <Button size={"icon"} class="border border-zinc-800">
-              <Icon.cvsLeft size={16} />
-            </Button>
-            <Button size={"icon"} class="border border-zinc-800">
-              <Icon.cvLeft size={16} />
-            </Button>
-            <Button size={"icon"} class="border border-zinc-800">
-              <Icon.cvRight size={16} />
-            </Button>
-            <Button size={"icon"} class="border border-zinc-800">
-              <Icon.cvsRight size={16} />
-            </Button> */}
+              <Button variant={"secondary"} size={"icon"}>
+                <Icons.cvsLeft size={16} />
+              </Button>
+              <Button variant={"secondary"} size={"icon"}>
+                <Icons.cvLeft size={16} />
+              </Button>
+              <Button variant={"secondary"} size={"icon"}>
+                <Icons.cvRight size={16} />
+              </Button>
+              <Button variant={"secondary"} size={"icon"}>
+                <Icons.cvsRight size={16} />
+              </Button>
             </div>
           </div>
         </TableCell>

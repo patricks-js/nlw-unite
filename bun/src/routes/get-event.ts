@@ -3,6 +3,7 @@ import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { BadRequest } from "./errors/bad-request";
+import { EventRepository } from "@/infra/database/repositories/event-repository";
 
 export async function getEventRoute(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(

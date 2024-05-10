@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:3333
 @attendeeId = nJhS9s9d7I4A
-@eventId = d7e7a563-c3ea-4510-b91f-19d88a938a51
+@eventId = 5db75da9-2e6c-44c3-a2db-8e506e9b08ce
 
 ###
 
@@ -9,7 +9,7 @@ POST {{baseUrl}}/api/events
 Content-Type: application/json
 
 {
-  "title": "Unite summit",
+  "title": "Unite summit 6",
   "details": "Um evento para apaixonados por tecnologia e programação.",
   "maximumAttendees": 2
 }
