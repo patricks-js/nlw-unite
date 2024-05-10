@@ -11,7 +11,6 @@ export function App() {
           <h2 class="font-bold text-2xl">Participants</h2>
           <SearchAttendee />
         </div>
-
         <AttendeeTable />
       </main>
     </>
