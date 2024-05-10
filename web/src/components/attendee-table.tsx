@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { Checkbox } from "./ui/checkbox";
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "./ui/table";
 
 export function AttendeeTable() {
@@ -16,7 +17,7 @@ function AttendeeTableHeader() {
     <TableHeader>
       <TableRow>
         <TableHead class="w-12">
-          <input class="bg-transparent rounded " type="checkbox" name="" id="" />
+          <Checkbox id="select-items" />
         </TableHead>
         <TableHead>Code</TableHead>
         <TableHead>Participant</TableHead>
@@ -35,10 +36,7 @@ function AttendeeTableBody() {
         {() => (
           <TableRow class="border-b">
             <TableCell>
-              {/* <Checkbox class="cursor-pointer">
-                <CheckboxControl class="border-zinc-800" />
-                <CheckboxLabel class="sr-only">Select item</CheckboxLabel>
-              </Checkbox> */}
+              <Checkbox id="select-item" />
             </TableCell>
             <TableCell>12315</TableCell>
             <TableCell>
