@@ -1,31 +1,31 @@
-import type { TableProps } from ".";
+import { usePagination } from "@/shared/pagination";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 
-export function AttendeeTableNavigation(props: TableProps) {
+export function AttendeeTableNavigation() {
+  const { pagination, setPagination } = usePagination();
+
   function goToPrev() {
-    if (props.currentPage > 1) {
-      props.setCurrentPage(props.currentPage - 1);
+    if (pagination.pageIndex > 1) {
+      setPagination("pageIndex", pagination.pageIndex - 1);
     }
   }
 
   function goToFirst() {
-    if (props.currentPage > 1) {
-      props.setCurrentPage(1);
+    if (pagination.pageIndex > 1) {
+      setPagination("pageIndex", 1);
     }
   }
 
   function goToNext() {
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    if (props.currentPage < props.maxPage!) {
-      props.setCurrentPage(props.currentPage + 1);
+    if (pagination.pageIndex < pagination.numberOfPages) {
+      setPagination("pageIndex", pagination.pageIndex + 1);
     }
   }
 
   function goToLast() {
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    if (props.currentPage < props.maxPage!) {
-      props.setCurrentPage(props.maxPage ?? 1);
+    if (pagination.pageIndex < pagination.numberOfPages) {
+      setPagination("pageIndex", pagination.numberOfPages);
     }
   }
 

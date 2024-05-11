@@ -3,7 +3,7 @@ import { emerald } from "tailwindcss/colors";
 import { Icons } from "./icons";
 
 export function SearchAttendee() {
-  const [, setSearch] = createSignal("");
+  const [search, setSearch] = createSignal("");
 
   return (
     <fieldset class="flex items-center gap-3 border border-border px-3 py-1.5 rounded-md text-sm">
@@ -12,9 +12,10 @@ export function SearchAttendee() {
       </label>
       <Icons.search size={16} color={emerald[300]} />
       <input
-        onChange={(e) => setSearch(e.target.value)}
-        id="search"
         type="text"
+        id="search"
+        onInput={(e) => setSearch(e.target.value)}
+        value={search()}
         placeholder="Search for participants..."
         class="bg-transparent flex-1 outline-none"
       />

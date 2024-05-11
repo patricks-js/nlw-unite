@@ -1,8 +1,8 @@
 import { attendees } from "@/data/attendees";
+import { usePagination } from "@/shared/pagination";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { For, createEffect, createSignal } from "solid-js";
-import type { TableProps } from ".";
+import { For, createEffect } from "solid-js";
 import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
@@ -10,16 +10,22 @@ import { TableBody, TableCell, TableRow } from "../ui/table";
 
 dayjs.extend(relativeTime);
 
-export function AttendeeTableBody(props: TableProps) {
-  const [attendeeList, setAttendeeList] = createSignal(attendees.slice(0, 10));
+export function AttendeeTableBody() {
+  const { pagination, setPagination } = usePagination();
 
   createEffect(() => {
-    setAttendeeList(attendees.slice((props.currentPage - 1) * 10, props.currentPage * 10));
+    setPagination({
+      ...pagination,
+      endEntry: pagination.pageIndex === pagination.numberOfPages ? pagination.numberOfEntries % 10 : 10,
+    });
   });
 
   return (
     <TableBody>
-      <For each={attendeeList()} fallback={<div>Loading...</div>}>
+      <For
+        each={attendees.slice((pagination.pageIndex - 1) * 10, pagination.pageIndex * 10)}
+        fallback={<div>Loading...</div>}
+      >
         {(item) => (
           <TableRow class="border-b">
             <TableCell>

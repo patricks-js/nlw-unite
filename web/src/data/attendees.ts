@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 
-export const attendees = Array.from({ length: 204 }).map(() => {
+export const attendees = Array.from({ length: 54 }).map(() => {
   return {
     id: faker.number.int({ min: 10000, max: 30000 }),
     name: faker.person.fullName(),
