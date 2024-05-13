@@ -11,7 +11,6 @@ export type Attendee = {
 };
 
 export type PaginationProps = {
-  pageData: Attendee[];
   pageSize: number;
   pageIndex: number;
   startEntry: number;
@@ -29,7 +28,6 @@ export const PaginationContext = createContext({} as InitialState);
 
 export function PaginationProvider(props: { children: JSX.Element }) {
   const [pagination, setPagination] = createStore<PaginationProps>({
-    pageData: [],
     pageIndex: 1,
     numberOfPages: 0,
     numberOfEntries: 0,
@@ -41,14 +39,12 @@ export function PaginationProvider(props: { children: JSX.Element }) {
   onMount(() => {
     const numberOfEntries = attendees.length;
     const numberOfPages = Math.ceil(numberOfEntries / pagination.pageSize);
-    const pageData = attendees.slice((pagination.startEntry - 1) * 10, pagination.pageIndex * 10);
 
     if (attendees.length > 0) {
       setPagination({
         ...pagination,
         numberOfPages,
         numberOfEntries,
-        pageData,
       });
     }
   });
